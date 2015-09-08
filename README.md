@@ -2,25 +2,25 @@
 
 ## Table of Contents
 
-* [`NSLog()` Basics](#`NSLog()`-Basics)
-  * [String Literal](#String-Literal)
-  * [Format String](#Format-String)
-  * [Format Specifiers](#Format-Specifiers)
-* [Primitives](#Primitives)
-  * [Common Primitives](#Common-Primitives)
-  * [Declaring A Primitive Variable](#Declaring-A-Primitive-Variable)
-  * [Redefining A Primitive Variable](#Redefining-A-Primitive-Variable)
-  * [Printing A Primitive Variable](#Printing-A-Primitive-Variable)
-* [Operators](#Operators)
-  * [Mathematical Operators](#Mathematical-Operators)
-  * [Assignment Operators](#Assignment-Operators)
-  * [Comparison Operators](#Comparison-Operators)
-  * [Operation Precedence](#Operation-Precedence)
+* [NSLog Basics](#nslog-basics)
+  * [String Literal](#string-literal)
+  * [Format String](#format-string)
+  * [Format Specifiers](#format-specifiers)
+* [Primitives](#primitives)
+  * [Common Primitives](#common-primitives)
+  * [Declaring A Primitive Variable](#declaring-a-primitive-variable)
+  * [Redefining A Primitive Variable](#redefining-a-primitive-variable)
+  * [Printing A Primitive Variable](#printing-a-primitive-variable)
+* [Operators](#operators)
+  * [Mathematical Operators](#mathematical-operators)
+  * [Assignment Operators](#assignment-operators)
+  * [Comparison Operators](#comparison-operators)
+  * [Operation Precedence](#operation-precedence)
 * Calling Methods
 * NSString
 
 
-## `NSLog()` Basics
+## NSLog Basics
 
 ### String Literal
 
