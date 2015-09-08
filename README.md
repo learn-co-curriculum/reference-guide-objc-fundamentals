@@ -57,7 +57,7 @@ There are 4 lights.
 | `CGFloat`    | `%f` or `%.nf`, *where* `n` *is the number of decimal places to display* |
 | `BOOL`       | `%d`             |
 
-######[Back to Top](#)
+######[Back to Top](#table-of-contents)
 ## Primitives
 
 ### Common Primitives
@@ -127,7 +127,7 @@ f: 3.141593
 f: 3.141592653590
 hidden: 1           // 1 means 'yes'
 ```
-######[Back to Top](#)
+######[Back to Top](#table-of-contents)
 ## Operators
 
 ### Mathematical Operators
@@ -170,7 +170,7 @@ Highest  | `()` precedence override
          | `==` `!=`
 Lowest   | `=` `+=` `-=` `*=` `/=` `%=`
 
-######[Back to Top](#)
+######[Back to Top](#table-of-contents)
 ## Calling Methods
 
 ### Method Syntax
@@ -218,7 +218,7 @@ Methods are behaviors that an object can perform (primitives cannot receive meth
 | Method Name      | The name of the method which should describe its effect and which is used to call its behavior. The method name may contain argument specifiers.
 | Arguments        | Variables or values be passed into the method which are relevant to its operation, and which the method requires in order to run.
 
-######[Back to Top](#)
+######[Back to Top](#table-of-contents)
 ## `NSString`
 
 ### String Literal
@@ -339,3 +339,4 @@ NSLog(@"%@", welcomeToFlatiron);
 ```
 This will print: `Welcome to Flatiron!`.
 
+######[Back to Top](#table-of-contents)
