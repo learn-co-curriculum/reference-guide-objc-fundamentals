@@ -16,8 +16,15 @@
   * [Assignment Operators](#assignment-operators)
   * [Comparison Operators](#comparison-operators)
   * [Operation Precedence](#operation-precedence)
-* Calling Methods
-* NSString
+* [Calling Methods](#calling-methods)
+  * [Method Call Syntax](#method-call-syntax)
+  * [Method Call Anatomy](#method-call-anatomy)
+* [NSString](#nsstring)
+  * [String Literal](#string-literal)
+  * [Introspection Methods](#introspection-methods)
+  * [Comparing Strings](#comparing-strings)
+  * [Case Change Methods](#case-change-methods)
+  * [Interpolation And Concatenation Methods](#interpolation-and-concatenation-methods)
 
 
 ## NSLog Basics
@@ -56,6 +63,27 @@ There are 4 lights.
 | `NSUInteger` | `%lu`            |
 | `CGFloat`    | `%f` or `%.nf`, *where* `n` *is the number of decimal places to display* |
 | `BOOL`       | `%d`             |
+
+Examples:
+
+```objc
+NSLog(@"%@", @"Welcome!");
+NSLog(@"-1: %li", -1);
+NSLog(@"42: %lu", 42);
+NSLog(@"pi: %f, 3.141593);
+NSLog(@"sqrt2: %.12f", 1.41421356237);
+NSLog(@"yes: %d", YES);
+```
+These will print:
+
+```
+Welcome!
+-1: -1
+42: 42
+pi: 3.141593
+sqrt2: 1.414213562370
+yes: 1
+```
 
 [Back to Top](#table-of-contents)
 ## Primitives
@@ -140,12 +168,29 @@ hidden: 1           // 1 means 'yes'
 | `/` | Division Operator       | "slash" or "over"     | Results to the **quotient** of dividing the left operand by the right operand. **Note:** *This operator truncates integer-only divisions.* |
 | `%` | **Advanced:** Modulus or Modulo       | "modulus" or "modulo" | Results to the **remainder** of clocking the left operand around the right operand. |
 
+Example:
+
+```objc
+NSInteger i = 5 + 7;
+NSLog(@"i: %li", i);
+```
+This will print: `i: 12`.
+
 ### Increment and Decrement Operators
 
 | Symbol | Name               | Pronunciation | Description |
 |:------:|:-------------------|:--------------|:------------|
 | `++`   | Increment Operator | "plus-plus"   | Increases the value of the associated variable by `1`.
 | `--`   | Decrement Operator | "minus-minus" | Decreases the value of the associated variable by `1`.
+
+Example:
+
+```objc
+NSUInteger i = 0;
+i++;
+NSLog(@"i: %lu", i);
+```
+This will print: `i: 1`.
 
 ### Comparison Operators
 
@@ -158,7 +203,15 @@ hidden: 1           // 1 means 'yes'
 | `>`  | "greater than"                   | Results to `YES` if the value of the left operand is higher than the value of the right operand.
 | `>=` | "greater-than-or-equal-to"       | Results to `YES` if the value of the left operand is higher than or the same as the value of the right operand.
 
-##### Operation Precedence
+Example:
+
+```objc
+BOOL sevenIsEqualToSeven = 7 == 7;
+NSLog(@"7 == 7: %d", sevenIsEqualToSeven);
+```
+This will print: `7 == 7: 1`, meaning 'yes'.
+
+### Operation Precedence
 
 Priority | Operators 
 ---------|-----------------------------
@@ -170,10 +223,18 @@ Highest  | `()` precedence override
          | `==` `!=`
 Lowest   | `=` `+=` `-=` `*=` `/=` `%=`
 
+Example:
+
+```objc
+NSInteger x = 7 + 8 * (9 - 3);
+NSLog(@"x: %li", x);
+```
+This will print: `x: 55`.
+
 [Back to Top](#table-of-contents)
 ## Calling Methods
 
-### Method Syntax
+### Method Call Syntax
 
 Full Syntax:
 
@@ -206,7 +267,7 @@ NSLog(@"%@", uppercase);
 This will print: `WELCOME!`.
 
 
-### Method Anatomy
+### Method Call Anatomy
 
 Methods are behaviors that an object can perform (primitives cannot receive method calls, but they *can* be method arguments).
 
@@ -267,6 +328,34 @@ NSLog(@"esquire: %d", esquire);
 ```
 This will print: `esquire: 1`.
 
+### Comparing Strings
+
+#### `isEqualToString:`
+
+Use the `isEqualToString:` method to check strings for equivalence. This method returns a `BOOL` that is `YES` only if the recipient string **exactly** matches the argument string.
+
+Examples:
+
+```objc
+// the strings are exactly alike
+
+if ([@"Sparta" isEqualToString:@"Sparta"]) {
+    NSLog(@"This is Sparta!");
+}
+```
+This will print: `This is Sparta!`.
+
+```objc
+// the strings are NOT exactly alike
+
+if ([@"snoop dog" isEqualToString:@"Snoop Dog"]) {
+    NSLog(@"This will not print.");
+} else {
+    NSLog(@"Will the real Snoop Dog please stand up?");
+}
+```
+This will print: `Will the real Snoop Dog please stand up?`.
+
 ### Case Change Methods
 
 #### `uppercaseString`
@@ -302,7 +391,7 @@ NSLog(@"%@", welcomeToFlatiron);
 ```
 This will print: `Welcome To Flatiron.`.
 
-### Interpolation & Concatenation Methods
+### Interpolation And Concatenation Methods
 
 #### `stringWithFormat:`
 
