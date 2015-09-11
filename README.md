@@ -93,7 +93,7 @@ yes: 1
 | Primitive   | Description |
 |:-----------:|:------------|
 | `NSInteger` | An integer value that can be either positive or negative. |
-| `NSUInteger`| An integer value that can **only** be positive (the "U" means "unsigned"). |
+| `NSUInteger`| An integer value that can **only** be zero or positive (the "U" means "unsigned"). |
 | `CGFloat`   | A "float" value that can (imperfectly) hold a decimal point. **Note:** *Do not use float values to hold currency.* |
 | `BOOL`      | A `YES` or `NO` value: `0` means "no", `1` means "yes" |
 
@@ -113,7 +113,7 @@ NSUInteger u = 0;
 CGFloat f = 0.0;
 BOOL hidden = NO;
 ```
-**Reminder:** *Do not use a* `*` *when declaring primitives. Entering* `NSInteger *variable` *will cause the compiler to generate an* `invalid integer to pointer conversion` *warning. The same goes for declaring any of the data types. This syntax does serve a purpose so the language permits it, but your application won't do what you expect.*
+**Reminder:** *Do not use a* `*` *when declaring primitives. Assigning an integer to* `NSInteger *` *will cause the compiler to generate an* `invalid integer to pointer conversion` *warning. The same goes for declaring any of the data types. This syntax does serve a purpose so the language permits it, but your application won't do what you expect.*
 
 ### Redefining A Primitive Variable
 
@@ -166,7 +166,9 @@ hidden: 1           // 1 means 'yes'
 | `-` | Subtraction Operator    | "minus" or "subtract" | Results to the **difference** of subtracting the right operand from the left operand.  |
 | `*` | Multiplication Operator | "star" or "times"     | Results to the **product** of multiplying the two operands. |
 | `/` | Division Operator       | "slash" or "over"     | Results to the **quotient** of dividing the left operand by the right operand. **Note:** *This operator truncates integer-only divisions.* |
-| `%` | **Advanced:** Modulus or Modulo       | "modulus" or "modulo" | Results to the **remainder** of clocking the left operand around the right operand. |
+| `%` | **Advanced:** Modulus or Modulo       | "modulus" or "modulo" | Results to the **remainder** of dividing the right operand by the left operand. **Note:** *This does not perform the strict mathematical definition of modulus.* |
+
+**Note:** *Exponent calculations are performed using the* `pow()` *function from C's* `math.h` *library.*
 
 Example:
 
@@ -223,6 +225,8 @@ Highest  | `()` precedence override
          | `==` `!=`
 Lowest   | `=` `+=` `-=` `*=` `/=` `%=`
 
+**Top-tip:** *Most of the time you can simply follow the [PEMDAS](http://math.wikia.com/wiki/P.E.M.D.A.S) acronym.*
+
 Example:
 
 ```objc
@@ -275,9 +279,9 @@ Methods are behaviors that an object can perform (primitives cannot receive meth
 |:----------------:|:------------|
 | Return Type      | The kind of variable that the method will result to, if any.
 | Capture Variable | The name of the variable to save the method's result into; this can be a new variable or an existing variable, but it must match the return type of the method.
-| Recipient Object | The object on which the method is being called, which should perform the expected behavior.
-| Method Name      | The name of the method which should describe its effect and which is used to call its behavior. The method name may contain argument specifiers.
-| Arguments        | Variables or values be passed into the method which are relevant to its operation, and which the method requires in order to run.
+| Recipient Object (*also* "Receiver" *or* "Target") | The object on which the method is being called, which should perform the expected behavior.
+| Method Name (*also* "Selector" *or* "Message") | The name of the method which should describe its effect and which is used to call its behavior. The method name may contain argument specifiers.
+| Arguments (*also* "Parameters") | Variables or values be passed into the method which are relevant to its operation, and which the method requires in order to run.
 
 [Back to Top](#table-of-contents)
 ## `NSString`
@@ -297,7 +301,7 @@ This will print: `Welcome!`.
 
 #### `length`
 
-This method returns an `NSUInteger` value equal to the number of characters in the recipient string. This method counts up from `1` and will always be one higher than the string's indexing.
+This method returns an `NSUInteger` value equal to the number of characters in the recipient string. This method counts up from `1` and will always be one higher than the index of the string's final character (since the index starts at `0`).
 
 ```objc
 NSUInteger welcomeLength = [@"welcome." length];
@@ -404,6 +408,8 @@ NSLog(@"%@", welcome);
 ```
 This will print: `Welcome to Flatiron!`.
 
+String formatting uses the same [Format Specifiers](#format-specifiers) as `NSLog()`.
+
 #### `stringByAppendingString:`
 
 This is an instance method that returns a **new** string that is the *concatenation* of the recipient string and the argument string. As an instance method, this must be called on an existing string variable:
@@ -427,5 +433,7 @@ NSString *welcomeToFlatiron = [welcome stringByAppendingFormat:@" %@ %@!", @"to"
 NSLog(@"%@", welcomeToFlatiron);
 ```
 This will print: `Welcome to Flatiron!`.
+
+String formatting uses the same [Format Specifiers](#format-specifiers) as `NSLog()`.
 
 [Back to Top](#table-of-contents)
