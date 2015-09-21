@@ -166,7 +166,7 @@ hidden: 1           // 1 means 'yes'
 | `-` | Subtraction Operator    | "minus" or "subtract" | Results to the **difference** of subtracting the right operand from the left operand.  |
 | `*` | Multiplication Operator | "star" or "times"     | Results to the **product** of multiplying the two operands. |
 | `/` | Division Operator       | "slash" or "over"     | Results to the **quotient** of dividing the left operand by the right operand. **Note:** *This operator truncates integer-only divisions.* |
-| `%` | **Advanced:** Modulus or Modulo       | "modulus" or "modulo" | Results to the **remainder** of dividing the right operand by the left operand. **Note:** *This does not perform the strict mathematical definition of modulus.* |
+| `%` | **Advanced:** Modulus or Modulo       | "modulus" or "modulo" | Results to the **remainder** of dividing the left operand by the right operand. **Note:** *This does not perform the strict mathematical definition of modulus.* |
 
 **Note:** *Exponent calculations are performed using the* `pow()` *function from C's* `math.h` *library.*
 
