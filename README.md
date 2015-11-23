@@ -70,7 +70,7 @@ Examples:
 NSLog(@"%@", @"Welcome!");
 NSLog(@"-1: %li", -1);
 NSLog(@"42: %lu", 42);
-NSLog(@"pi: %f, 3.141593);
+NSLog(@"pi: %f", 3.141593);
 NSLog(@"sqrt2: %.12f", 1.41421356237);
 NSLog(@"yes: %d", YES);
 ```
