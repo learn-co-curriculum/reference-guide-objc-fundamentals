@@ -437,3 +437,5 @@ This will print: `Welcome to Flatiron!`.
 String formatting uses the same [Format Specifiers](#format-specifiers) as `NSLog()`.
 
 [Back to Top](#table-of-contents)
+
+<a href='https://learn.co/lessons/reference-guide-objc-fundamentals' data-visibility='hidden'>View this lesson on Learn.co</a>
