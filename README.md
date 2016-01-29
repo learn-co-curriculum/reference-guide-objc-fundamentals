@@ -438,4 +438,4 @@ String formatting uses the same [Format Specifiers](#format-specifiers) as `NSLo
 
 [Back to Top](#table-of-contents)
 
-<a href='https://learn.co/lessons/reference-guide-objc-fundamentals' data-visibility='hidden'>View this lesson on Learn.co</a>
+<p data-visibility='hidden'>View <a href='https://learn.co/lessons/reference-guide-objc-fundamentals' title='Reference Guide: Objective-C Fundamentals'>Reference Guide: Objective-C Fundamentals</a> on Learn.co and start learning to code for free.</p>
